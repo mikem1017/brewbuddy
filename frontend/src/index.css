@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Nord Light Theme */
+    --background: 219 28% 88%;  /* Snow Storm light */
+    --foreground: 220 16% 22%;  /* Polar Night darkest */
+    --card: 218 27% 94%;  /* Snow Storm lightest */
+    --card-foreground: 220 16% 22%;
+    --popover: 218 27% 94%;
+    --popover-foreground: 220 16% 22%;
+    --primary: 193 43% 67%;  /* Frost teal */
+    --primary-foreground: 220 16% 22%;
+    --secondary: 220 17% 32%;  /* Polar Night light */
+    --secondary-foreground: 218 27% 94%;
+    --muted: 220 13% 42%;  /* Polar Night lighter */
+    --muted-foreground: 220 17% 32%;
+    --accent: 179 25% 65%;  /* Frost teal variant */
+    --accent-foreground: 220 16% 22%;
+    --destructive: 354 42% 56%;  /* Nord red */
+    --destructive-foreground: 218 27% 94%;
+    --border: 220 13% 42%;
+    --input: 220 13% 42%;
+    --ring: 193 43% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Nord Dark Theme */
+    --background: 220 16% 22%;  /* Polar Night darkest */
+    --foreground: 218 27% 94%;  /* Snow Storm */
+    --card: 220 17% 32%;  /* Polar Night lighter */
+    --card-foreground: 218 27% 94%;
+    --popover: 220 17% 32%;
+    --popover-foreground: 218 27% 94%;
+    --primary: 193 43% 67%;  /* Frost teal/cyan */
+    --primary-foreground: 220 16% 22%;
+    --secondary: 219 28% 88%;  /* Snow Storm for contrast */
+    --secondary-foreground: 220 16% 22%;
+    --muted: 220 13% 42%;  /* Polar Night medium */
+    --muted-foreground: 219 28% 88%;
+    --accent: 179 25% 65%;  /* Frost teal */
+    --accent-foreground: 220 16% 22%;
+    --destructive: 354 42% 56%;  /* Nord red */
+    --destructive-foreground: 218 27% 94%;
+    --border: 220 13% 42%;
+    --input: 220 13% 42%;
+    --ring: 193 43% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar - Nord styled */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 17% 32%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(193 43% 67% / 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(193 43% 67% / 0.8);
+}
+

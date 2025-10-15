@@ -1,0 +1,42 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.12.1
+
+# Authentication & Security
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+python-dotenv==1.0.0
+
+# Task Scheduling
+apscheduler==3.10.4
+
+# GPIO & Hardware (will be mocked on non-Pi systems)
+RPi.GPIO==0.7.1; platform_machine == "armv7l" or platform_machine == "aarch64"
+w1thermsensor==2.0.0; platform_machine == "armv7l" or platform_machine == "aarch64"
+
+# HTTP Client for external APIs
+httpx==0.25.1
+
+# Email
+aiosmtplib==3.0.1
+email-validator==2.1.0
+
+# Image Processing
+Pillow==10.1.0
+
+# PDF Generation
+reportlab==4.0.7
+
+# WebSocket
+websockets==12.0
+
+# Utilities
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+

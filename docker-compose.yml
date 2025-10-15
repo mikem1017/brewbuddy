@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: brewbuddy-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - brewbuddy-data:/data
+      - /sys:/sys:ro  # For reading temperature sensors
+    devices:
+      - /dev/gpiomem:/dev/gpiomem  # For GPIO access on Raspberry Pi
+    environment:
+      - ENVIRONMENT=production
+      - DEBUG=false
+      - HARDWARE_MODE=real  # Set to 'mock' for testing without hardware
+      - DATABASE_URL=sqlite:////data/brewbuddy.db
+      - SECRET_KEY=${SECRET_KEY:-change-this-in-production}
+    privileged: true  # Required for GPIO access
+    networks:
+      - brewbuddy-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: brewbuddy-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - brewbuddy-network
+
+volumes:
+  brewbuddy-data:
+    driver: local
+
+networks:
+  brewbuddy-network:
+    driver: bridge
+
+
